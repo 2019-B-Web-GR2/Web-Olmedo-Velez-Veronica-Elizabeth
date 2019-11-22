@@ -1,16 +1,79 @@
-import { Controller, Get } from '@nestjs/common';
+import {Controller, Get, HttpCode, InternalServerErrorException, Post} from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('Pepito') // segmento url -> "/"
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {
 
-  @Get()
+  }// http://localhost:4000/Pepito/ GET
+
+  @Get('Hola-Mundo') // -> url "Hola-Mundo"
   getHello(): string {
     return this.appService.getHello();
   }
+    // http://localhost:4000/Pepito/ POST
+  @HttpCode(200)
+  @Post('esPar')
+  adiosMundo(): string{
+    const segundos = this.obtenerSegundos();
+    if(segundos % 2===0){
+      return 'Adios Mundo';
+    }else{
+      throw new  InternalServerErrorException(
+          'Es impar',
+      );
+    }
+
+  }
+
+  private obtenerSegundos(): number{
+    return new Date ().getSeconds()
+
+  }
 }
 
+/*//Interfaz
+interface Pelota{
+  diametro: number;
+  color?: string;
+}
+
+const balonFutbol:  Pelota ={
+  diametro: 1,
+}
+
+interface Entrenador {
+  id: number;
+  nombre: string
+}
+
+interface Pokemon {
+  id: number;
+  nombre: string;
+  entrenador: Entrenador | number ; // Foreign Key
+
+}
+
+const ash: Entrenador = {
+  id: 1,
+  nombre:'Ash',
+};
+
+const pikachu: Pokemon = {
+  id: 1,
+  nombre: 'Pikachu',
+  entrenador: 1,
+};
+
+const suma = pikachu.entrenador as number + pikachu.id;
+const suma2 = <number> pikachu.entrenador + pikachu.id;
+
+/*class Juego implements  Pelota{
+  diametro: number;
+}*/
+
+
+/*
 //Typescript
 // var nombre: string = "Nika"; Nunca se utiliza
 let apellido:string = "Olmedo"; // Mutable
@@ -65,11 +128,45 @@ if ({}){
 }
 
 
-class Usuario{
+/*class Usuario{
   public cedula:string ="1720572773";
   cedula2 = "1712435039"; // public : string
+
+  constructor(
+    public  nombre:string // Crea una Propiedad
+                          // Llamada nombre y
+                          // REcibir un parametro
+                          // Y asignar a la propiedad nombre
+  ){}
+
 
   private holaMundo(): void {
     console.log("Hola")
   }
+
+
+}*/
+
+/*class Usuario2 {
+  constructor(
+      public nombre: string, // parametro requerido
+      public apellido?: string, // parametro opcional
+  ){}
 }
+const Nika = new Usuario2("Nika","Olmedo");
+const Adrian = new Usuario2("Adrian");
+
+class Empleado extends Usuario2{
+  constructor(
+      nombre:string,
+      public numeroContrato:string,
+      apellido?:string,
+  ){
+    super(nombre,apellido);
+  }
+
+}
+const empleadaNika = new Empleado("Nika",
+    "6591");
+
+ */
