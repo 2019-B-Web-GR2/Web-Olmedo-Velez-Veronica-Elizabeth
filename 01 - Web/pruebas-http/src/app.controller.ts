@@ -1,4 +1,4 @@
-import {Controller, Get, HttpCode, InternalServerErrorException, Post} from '@nestjs/common';
+import {Controller, Get, Headers,HttpCode, InternalServerErrorException, Post, Query, Param, Body} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('Pepito') // segmento url -> "/"
@@ -30,7 +30,49 @@ export class AppController {
     return new Date ().getSeconds()
 
   }
+
+  // @ts-ignore
+  @Get ('obtener-cabeceras')
+  obtenerCabeceras(
+      @Headers()cabeceras,
+      @Headers('numerouno') numeroUno:string
+  ){
+    console.log(cabeceras);
+    return 'Las cabeceras son: ${numeroUno}';
+  }
+
+  @Get ('incripcion-curso/:idCurso/:cedula')// /:nombreParametro
+  public incripcionesCurso(
+    @Param() parametrosDeRuta: ObjetoInscripcion,
+    @Param( 'idCurso') idCurso:string,
+    @Param('cedula') cedula:string,
+     ):string {
+    console.log(parametrosDeRuta);
+    return 'Te inscribiste al Curso ${idCurso} ${cedula}';
+  }
+
+
+  @Post('almorzar')
+  @HttpCode(200)
+  public almorzar(
+      @Body() parametrosDeCuerpo,
+      @Body('id') id:number,//objeto :D Arreglo D:
+  ): string {
+    console.log(parametrosDeCuerpo);
+    return 'Te inscribiste al curso ${parametrosDeCuerpo}';
+  }
+
+
 }
+
+interface ObjetoInscripcion {
+  idCurso?:string;
+  cedula:string;
+}
+
+
+
+
 
 /*//Interfaz
 interface Pelota{
