@@ -7,9 +7,10 @@ import {UsuarioEntity} from "./usuario/usuario.entity";
   imports: [
     TypeOrmCoreModule.forRoot(
         {
+          name: 'default',
           type: 'mysql',
           host: 'localhost',
-          port: 32775,
+          port: 32769,
           username: 'nika',
           password: '1234',
           database: 'web',
