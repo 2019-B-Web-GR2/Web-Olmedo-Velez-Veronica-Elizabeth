@@ -1,16 +1,4 @@
-import {
-    BadRequestException,
-    Body,
-    Controller,
-    Delete,
-    Get,
-    Param,
-    Post,
-    Put,
-    Query,
-    Session,
-    UnauthorizedException
-} from '@nestjs/common';
+import {BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Query, Session} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
 import {UsuarioEntity} from "./usuario.entity";
 import {DeleteResult} from "typeorm";
@@ -18,64 +6,86 @@ import * as Joi from '@hapi/joi';
 import {UsuarioCreateDto} from "./usuario.create-dto";
 import {validate} from "class-validator";
 import {UsuarioUpdateDto} from "./usuario.update-dto";
-import {ok} from "assert";
+
+// JS const Joi = require('@hapi/joi');
+
 
 @Controller('usuario')
 export class UsuarioController {
-
-    //Adm -> Crea, actualiza y elimina
-    //Sup -> actualiza
-
     constructor(
-        // tslint:disable-next-line:variable-name
         private readonly _usuarioService: UsuarioService,
     ) {
+
+    }
+
+    @Post('login')
+    login(
+        @Body('username') username: string,
+        @Body('password') password: string,
+        @Session() session
+    ) {
+        console.log('Session', session);
+        if (username === 'adrian' && password === '1234') {
+            session.usuario = {
+                nombre: 'Adrian',
+                userId: 1,
+                roles: ['Administrador']
+            }
+            return 'ok';
+        }
+        if (username === 'vicente' && password === '1234') {
+            session.usuario = {
+                nombre: 'Vicente',
+                userId: 2,
+                roles: ['Supervisor']
+            }
+            return 'ok';
+        }
+        throw new BadRequestException('No envia credenciales');
+    }
+
+    @Get('sesion')
+    sesion(
+        @Session() session
+    ) {
+        return session;
     }
 
     @Get('hola')
     hola(): string {
         return `
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-                         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-             <title>EPN</title>
-</head>
-<body>
-  <h1>Mi primera página web</h1>
+<html>
+        <head> <title>EPN</title> </head>
+        <body>
+        <h1> Mi primera pagina web </h1>
 </body>
-</html>
-`;
+</html>`;
     }
 
-    @Get('sesion')
-    sesion(
-        @Session() session,
-    ) {
-        return session;
-    }
 
-    //Get /model/:id
+    // GET /modelo/:id
     @Get(':id')
-    obtenerUsuario(
+    obtenerUnUsuario(
         @Param('id') identificador: string,
-    ): Promise<UsuarioEntity> {
+    ): Promise<UsuarioEntity | undefined> {
         return this._usuarioService
-            .encontrarUno(Number(identificador));
+            .encontrarUno(
+                Number(identificador)
+            );
     }
 
     @Post()
-    async crearUsuario(
+    async crearUnUsuario(
         @Body() usuario: UsuarioEntity,
         @Session() session,
     ): Promise<UsuarioEntity> {
-        const isAdm = session.usuario.roles.find(rol => {
-            return rol === 'Administrador';
-        });
-        if (!isAdm) {
-            throw new UnauthorizedException('Error', 'No cuenta con permisos para realizar la acción');
+        const administrador=session.usuario.roles.find(
+            rol => {
+                return rol ==='Administrador'
+            }
+        )
+        if(!administrador){
+            throw new BadRequestException('Error usted no cuenta con los suficientes permisos');
         }
         const usuarioCreateDTO = new UsuarioCreateDto();
         usuarioCreateDTO.nombre = usuario.nombre;
@@ -86,20 +96,28 @@ export class UsuarioController {
         } else {
             return this._usuarioService
                 .crearUno(
-                    usuario,
+                    usuario
                 );
         }
+
+
     }
 
-    @Put()
+    @Put(':id')
     async actualizarUnUsuario(
         @Body() usuario: UsuarioEntity,
         @Param('id') id: string,
         @Session() session,
-    ) {
-        const isAdm = session.usuario.roles.find(rol => {
-            return (rol === 'Administrador' || rol === 'Supervisor');
-        });
+    ): Promise<UsuarioEntity> {
+        const rol=session.usuario.roles.find(
+            rol => {
+                return (rol === 'Administrador' || rol === 'Supervisor');
+            }
+        )
+
+        if(!rol){
+            throw new BadRequestException('Error usted no cuenta con los suficientes permisos');
+        }
         const usuarioUpdateDTO = new UsuarioUpdateDto();
         usuarioUpdateDTO.nombre = usuario.nombre;
         usuarioUpdateDTO.cedula = usuario.cedula;
@@ -111,25 +129,28 @@ export class UsuarioController {
             return this._usuarioService
                 .actualizarUno(
                     +id,
-                    usuario,
+                    usuario
                 );
         }
+
     }
 
-    @Delete()
+    @Delete(':id')
     eliminarUno(
         @Param('id') id: string,
         @Session() session,
     ): Promise<DeleteResult> {
-        const isAdm = session.usuario.roles.find(rol => {
-            return rol === 'Administrador';
-        });
-        if (!isAdm) {
-            throw new UnauthorizedException('Error', 'No cuenta con permisos para realizar la acción');
+        const rol=session.usuario.roles.find(
+            rol => {
+                return (rol === 'Administrador' || rol === 'Supervisor');
+            }
+        )
+        if(rol==='Supervisor'){
+            throw new BadRequestException('Error usted no cuenta con los suficientes permisos');
         }
         return this._usuarioService
             .borrarUno(
-                +id,
+                +id
             );
     }
 
@@ -140,24 +161,12 @@ export class UsuarioController {
         @Query('where') where?: string,
         @Query('order') order?: string,
     ): Promise<UsuarioEntity[]> {
-        const nuevoEsquema = Joi.object({
-            skip: Joi.number(),
-        });
-        try {
-            const objetoValidado = await nuevoEsquema
-                .validateAsync({
-                    skip: skip,
-                });
-            console.log('objetoValidado', objetoValidado);
-        } catch (err) {
-            console.error('Error', err);
-        }
-
-        if (skip) {
-            skip = +skip;
-        }
-        if (take) {
-            take = +take;
+        if (order) {
+            try {
+                order = JSON.parse(order);
+            } catch (e) {
+                order = undefined;
+            }
         }
         if (where) {
             try {
@@ -166,44 +175,31 @@ export class UsuarioController {
                 where = undefined;
             }
         }
-        if (order) {
-            try {
-                order = JSON.parse(order);
-            } catch (e) {
-                order = undefined;
-            }
+        if (skip) {
+            skip = +skip;
+            // const nuevoEsquema = Joi.object({
+            //     skip: Joi.number()
+            // });
+            // try {
+            //     const objetoValidado = await nuevoEsquema
+            //         .validateAsync({
+            //             skip: skip
+            //         });
+            //     console.log('objetoValidado', objetoValidado);
+            // } catch (error) {
+            //     console.error('Error',error);
+            // }
         }
-        return this._usuarioService.buscar(
-            where,
-            skip as number,
-            take as number,
-            order,
-        );
-    }
-
-    @Post('login')
-    login(
-        @Body('username') username: string,
-        @Body('password') password: string,
-        @Session() session,
-    ) {
-        console.log('Session', session);
-        if (username === 'adrian' && password === '1234') {
-            session.usuario = {
-                nombre: 'Adrian',
-                userId: 1,
-                roles: ['Administrador'],
-            };
-            return 'ok';
-        } else if (username === 'vicente' && password === '1234') {
-            session.usuario = {
-                nombre: 'Vicente',
-                userId: 2,
-                roles: ['Supervisor'],
-            };
-            return 'ok';
+        if (take) {
+            take = +take;
         }
-        throw new BadRequestException('Error', 'Error autenticando');
+        return this._usuarioService
+            .buscar(
+                where,
+                skip as number,
+                take as number,
+                order
+            );
     }
 
 

@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc47932-19a0-4e04-83db-4a4f1d38835d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.update-dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.create-dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.create-dto.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +58,9 @@
       <workItem from="1577992341971" duration="4578000" />
       <workItem from="1577997001199" duration="2564000" />
       <workItem from="1578078857966" duration="8058000" />
+      <workItem from="1578088942571" duration="2893000" />
+      <workItem from="1578507971343" duration="1007000" />
+      <workItem from="1578586975517" duration="1134000" />
     </task>
     <servers />
   </component>
