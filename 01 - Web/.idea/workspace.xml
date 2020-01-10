@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc47932-19a0-4e04-83db-4a4f1d38835d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pruebas-http/views/ejemplo.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pruebas-http/views/Componentes/numeros/mostrar-numeros.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/8QuqRJ7eGitiXZQWaekZKNvzkdwKVjFq.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/Gs7ROjiQan_w8juT9Qew1fuCb-217vyt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/KpRGyuUZOgeXuf-ippkj25-gVQZoPNMn.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/N3M-FJoJcd6s70KJ8giZxKY5wwzNNmLT.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/wSiwTeu0fd_XOYPy2bXuACXMyDDSy10s.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/9XoFrwBYTYrqmnfmSrIqOgVFJCXrpZMt.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/sessions/9XoFrwBYTYrqmnfmSrIqOgVFJCXrpZMt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/e3JAon_qijVazxh_9TCXx9bXIDuaJEOC.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/sessions/e3JAon_qijVazxh_9TCXx9bXIDuaJEOC.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/views/ejemplo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/ejemplo.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +65,8 @@
       <workItem from="1578078857966" duration="8058000" />
       <workItem from="1578088942571" duration="2893000" />
       <workItem from="1578507971343" duration="1007000" />
-      <workItem from="1578586975517" duration="7527000" />
+      <workItem from="1578586975517" duration="7988000" />
+      <workItem from="1578683212492" duration="3893000" />
     </task>
     <servers />
   </component>

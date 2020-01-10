@@ -36,9 +36,15 @@ export class UsuarioController {
     ){
         res.render('ejemplo',{
             datos: {
-                nombre:'Adrian'
+                nombre:'Adrian',
+                suma: this.suma, //Definicion de la funcion
+                joi:Joi,
             }
         });
+    }
+
+    suma( numUno, numDos){
+        return numUno + numDos;
     }
 
     @Post('login')
@@ -108,7 +114,7 @@ export class UsuarioController {
         <h1> Mi primera pagina web ${
             session.usuario ? session.usuario.nombre : ''
         }</h1>
-        $ {contenidoHTML}
+        ${contenidoHTML}
 </body>
 </html>`;
     }
