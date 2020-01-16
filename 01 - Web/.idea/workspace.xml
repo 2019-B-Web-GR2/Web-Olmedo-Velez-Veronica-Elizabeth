@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc47932-19a0-4e04-83db-4a4f1d38835d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pruebas-http/views/componentes/componentes/mostrar-tablas.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pruebas-http/views/usuarios/numeros/mostrar-numeros.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pruebas-http/views/usuarios/rutas/buscar-mostrar-usuario.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pruebas-http/views/compartido/cabecera.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pruebas-http/views/compartido/pie-de-pagina.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pruebas-http/views/usuarios/rutas/crear-usuario.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/yZUwlAH3vFRZroIvNrpeFMGwJdpKQEMH.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/sessions/yZUwlAH3vFRZroIvNrpeFMGwJdpKQEMH.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/views/Componentes/numeros/mostrar-numeros.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/views/ejemplo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/ejemplo.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/views/usuarios/componentes/mostrar-tablas.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/usuarios/componentes/mostrar-tablas.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/views/usuarios/rutas/buscar-mostrar-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/usuarios/rutas/buscar-mostrar-usuario.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +30,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USRSIG\Documents\GitHub\Web-Olmedo-Velez-Veronica-Elizabeth\01 - Web\pruebas-http\views\componentes" />
       <recent name="C:\Users\USRSIG\Documents\GitHub\Web-Olmedo-Velez-Veronica-Elizabeth\01 - Web\pruebas-http\views\usuarios" />
       <recent name="C:\Users\USRSIG\Documents\GitHub\Web-Olmedo-Velez-Veronica-Elizabeth\01 - Web\pruebas-http\views\Componentes\rutas" />
       <recent name="C:\Users\USRSIG\Documents\GitHub\Web-Olmedo-Velez-Veronica-Elizabeth\01 - Web\pruebas-http\views\Componentes\componentes" />
@@ -75,7 +75,8 @@
       <workItem from="1578088942571" duration="2893000" />
       <workItem from="1578507971343" duration="1007000" />
       <workItem from="1578586975517" duration="7988000" />
-      <workItem from="1578683212492" duration="6969000" />
+      <workItem from="1578683212492" duration="7119000" />
+      <workItem from="1579201850259" duration="7031000" />
     </task>
     <servers />
   </component>

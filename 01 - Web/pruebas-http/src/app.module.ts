@@ -14,7 +14,7 @@ import {UsuarioService} from "./usuario/usuario.service";
                 name: 'default', // Nombre cadena de Conex.
                 type: 'mysql',
                 host: 'localhost',
-                port: 32775,
+                port: 32769,
                 username: 'nika',
                 password: '1234',
                 database: 'web',
@@ -36,3 +36,5 @@ export class AppModule {
 
     }
 }
+
+
