@@ -45,6 +45,17 @@ export class UsuarioController {
             }
         );
     }
+    @Get('ruta/crear-usuario')
+    async rutaCrearUsuarios(
+        @Res() res,
+    ) {
+        res.render(
+            'usuarios/rutas/crear-usuario',
+            {
+
+            },
+        );
+    }
 
     @Get ('ejemplosejs')
     ejemploejs(
