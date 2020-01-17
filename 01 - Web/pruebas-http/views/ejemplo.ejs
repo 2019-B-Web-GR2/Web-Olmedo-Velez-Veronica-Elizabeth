@@ -12,13 +12,15 @@
 <h1>JOI :<%= datos.joi %></h1>
 
 <% arregloNumeros.forEach( (numero)=> { %>
+
     <!-- COMPONENTE MOSTRAR NUMERO -->
-    <%- include('componentes/numeros/mostrar-numeros',
+    <%- include('componentes/numeros/mostrar-numero',
     {
-    anadirAnio:anadirAnio,
-    numero:numero,
-    urlBase:urlBase
+        anadirAnio:anadirAnio,
+        numero:numero,
+        urlBase:urlBase
     }); %>
+
 <% }); %>
 <!-- FIN ITERAR -->
 

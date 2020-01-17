@@ -35,35 +35,34 @@ export class UsuarioService {
             .save(usuario); // UPSERT
     }
 
-    buscar( //Los parametros son opcionales
-        where:any = {},
+    buscar(
+        where: any = {},
         skip: number = 0,
         take: number = 10,
         order: any = {
             id: 'DESC',
             nombre: 'ASC'
         }
-    ):Promise <UsuarioEntity []> {
+    ): Promise<UsuarioEntity[]> {
+
         // Exactamente el nombre o Exactamente la cedula
         const consultaWhere = [
             {
-                nombre:''
+                nombre: ''
             },
             {
-                cedula:''
+                cedula: ''
             }
-
         ];
-        // Se envia un arreglo de consulta
 
+        // Exactamente el nombre o LIKE la cedula
         const consultaWhereLike = [
             {
-                nombre: Like('%a%')
+                nombre: Like('a%')
             },
             {
-                cedula:Like('%a')
+                cedula: Like('%a')
             }
-
         ];
 
         // id sea mayor a 20
