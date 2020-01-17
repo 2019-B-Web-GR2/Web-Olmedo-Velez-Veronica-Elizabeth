@@ -1,20 +1,27 @@
-<%- include('../../compartido/cabecera')%>
+<%- include('../../compartido/cabecera') %>
 <div class="container">
+    <% if(datos.error){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= datos.error %>
+    </div>
+    <% } %>
+
     <h1>Crear Usuario</h1>
-    <form action="https://www.google.com"
-          method="GET"
+
+    <form action="/usuario"
+          method="POST"
     >
         <div class="form-group">
             <label for="nombreID">Nombre</label>
             <input id="nombreID"
                    type="text"
                    name="nombre"
-                   placeholder="Ej: Veronica Olmedo"
-                   title="Ingrese nombre de usuario"
+                   placeholder="Ej: Adrian Eguez"
+                   title="Ingresar nombre de usuario"
                    class="form-control">
             <small id="nombreIDHelp"
                    class="form-text text-muted">
-                Ingrese un nombre mayor a 3 caracteres y menor a 10
+                Ingresa un nombre mayor a 3 caracteres y menor a 10.
             </small>
         </div>
         <div class="form-group">
@@ -22,23 +29,25 @@
             <input id="cedulaID"
                    type="text"
                    name="cedula"
-                   placeholder="Ej: 1720572773"
-                   title="Ingrese la cedula del usuario"
+                   placeholder="Ej: 1718138939"
+                   title="Ingresar la cedula del usuario"
                    class="form-control">
             <small id="cedulaIDHelp"
                    class="form-text text-muted">
-                Ingrese una cedula valida
+                Ingresar una cedula válida.
             </small>
         </div>
-
-
-        <button type="subtmit"
+        <button type="submit"
                 class="btn btn-success"
-        > Crear Usuario</button>
+        >
+            Crear Usuario
+        </button>
         <button type="reset"
                 class="btn btn-secondary"
-        > Limpiar formulario</button>
+        >
+            Limpiar formulario
+        </button>
     </form>
-</div>
 
-<%- include('../../compartido/pie-de-pagina')%>
+</div>
+<%- include('../../compartido/pie-de-pagina') %>
