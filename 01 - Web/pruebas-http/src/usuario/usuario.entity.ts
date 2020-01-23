@@ -1,4 +1,5 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, Index, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {MascotasEntity} from "../mascotas/mascotas.entity";
 
 @Entity('usuario_web')
 export class UsuarioEntity {
@@ -31,4 +32,10 @@ export class UsuarioEntity {
         comment: 'Cedula de la tabla usuario'
     })
     cedula: string;
+
+    @OneToMany(
+        type => MascotasEntity, //Entidad
+        mascota => mascota.usuario,
+    )
+    mascotas: MascotasEntity[];
 }

@@ -13,11 +13,12 @@ import {
 } from '@nestjs/common';
 import {UsuarioService} from './usuario.service';
 import {UsuarioEntity} from './usuario.entity';
-import {DeleteResult} from 'typeorm';
+import {DeleteResult, Like} from 'typeorm';
 import * as Joi from '@hapi/joi';
 import {UsuarioCreateDto} from './usuario.create-dto';
 import {validate} from 'class-validator';
 import {UsuarioUpdateDto} from './usuario.update-dto';
+import {url} from "inspector";
 
 // JS const Joi = require('@hapi/joi');
 
@@ -33,8 +34,20 @@ export class UsuarioController {
     async rutaMostrarUsuarios(
         @Query('mensaje') mensaje: string,
         @Query('error') error: string,
+        @Query('consultaUsuario')consultaUsuario: string,
         @Res() res,
     ) {
+        const consultaServicio;
+        if(consultaUsuario){
+            consultaServicio= [{
+                nombre: Like('%'+ consultaUsuario + '%'),
+            },
+
+                {
+                   cedula :  Like('%'+ consultaUsuario + '%'),
+                }
+            ];
+        }
         const usuarios = await this._usuarioService.buscar();
         res.render(
             'usuario/rutas/buscar-mostrar-usuario',
@@ -75,16 +88,22 @@ export class UsuarioController {
         };
         try {
             const arregloUsuarios = await this._usuarioService.buscar(consulta);
-            res.render(
-                'usuario/rutas/crear-usuario',
-                {
-                    datos: { error, usuario: arregloUsuarios[0] },
-                },
-            );
+            if (arregloUsuarios.length > 0){
+                res.render(
+                    '/usuario/rutas/crear-usuario',
+                    {
+                        datos: { error, usuario: arregloUsuarios[0] },
+                    },
+                );
+            }else {
+                res.redirect(
+                    '/usuario/ruta/mostrar-usuarios?error=No existe ese usuario',
+                )
+            }
         } catch (error) {
             console.log(error);
             res.redirect(
-                'usuario/rutas/mostrar-usuarios?error=Error editando usuario',
+                '/usuario/rutas/buscar-mostrar-usuarios?error=No existe ese usuario',
             );
         }
 
@@ -225,24 +244,31 @@ export class UsuarioController {
 
     }
 
-    @Put(':id')
+    @Post(':id')
     async actualizarUnUsuario(
         @Body() usuario: UsuarioEntity,
         @Param('id') id: string,
-    ): Promise<UsuarioEntity> {
+        @Res() res,
+    ): Promise<void> {
         const usuarioUpdateDTO = new UsuarioUpdateDto();
         usuarioUpdateDTO.nombre = usuario.nombre;
         usuarioUpdateDTO.cedula = usuario.cedula;
         usuarioUpdateDTO.id = +id;
         const errores = await validate(usuarioUpdateDTO);
         if (errores.length > 0) {
-            throw new BadRequestException('Error validando');
+            res.redirect(
+                '/usuario/ruta/editar-usuario' + id + '?error= Usuario no validado'
+            )
         } else {
-            return this._usuarioService
+            await this._usuarioService
                 .actualizarUno(
                     +id,
                     usuario,
                 );
+            res.redirect(
+                '/usuario/ruta/mostrar-usuarios?mensaje=El Usuario'
+                + usuario.nombre + 'actualizado',
+            )
         }
 
     }
