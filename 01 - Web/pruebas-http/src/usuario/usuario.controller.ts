@@ -37,7 +37,7 @@ export class UsuarioController {
         @Query('consultaUsuario')consultaUsuario: string,
         @Res() res,
     ) {
-        const consultaServicio;
+        let consultaServicio;
         if(consultaUsuario){
             consultaServicio= [{
                 nombre: Like('%'+ consultaUsuario + '%'),
@@ -48,7 +48,7 @@ export class UsuarioController {
                 }
             ];
         }
-        const usuarios = await this._usuarioService.buscar();
+        const usuarios = await this._usuarioService.buscar(consultaServicio);
         res.render(
             'usuario/rutas/buscar-mostrar-usuario',
             {
@@ -90,7 +90,7 @@ export class UsuarioController {
             const arregloUsuarios = await this._usuarioService.buscar(consulta);
             if (arregloUsuarios.length > 0){
                 res.render(
-                    '/usuario/rutas/crear-usuario',
+                    'usuario/rutas/crear-usuario',
                     {
                         datos: { error, usuario: arregloUsuarios[0] },
                     },

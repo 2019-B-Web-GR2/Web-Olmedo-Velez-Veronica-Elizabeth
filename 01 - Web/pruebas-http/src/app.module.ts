@@ -6,6 +6,7 @@ import {UsuarioEntity} from './usuario/usuario.entity';
 import {UsuarioModule} from './usuario/usuario.module';
 import {UsuarioService} from './usuario/usuario.service';
 import {MascotasModule} from "./mascotas/mascotas.module";
+import {MascotasEntity} from "./mascotas/mascotas.entity";
 
 @Module({
     imports: [
@@ -23,6 +24,7 @@ import {MascotasModule} from "./mascotas/mascotas.module";
                 dropSchema: false,
                 entities: [
                     UsuarioEntity,
+                    MascotasEntity,
                 ],
                 synchronize: true, // Crear -> true , Conectar -> false
             },

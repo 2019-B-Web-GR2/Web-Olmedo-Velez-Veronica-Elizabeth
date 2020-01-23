@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc47932-19a0-4e04-83db-4a4f1d38835d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pruebas-http/src/mascotas/mascotas.entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pruebas-http/src/mascotas/mascotas.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/1QZnTrMskqYtZetLVLASIl7Peq9e2EYg.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/35L7DhM_Toc_1UIqMGVDK6iDADGIv3G7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/9XoFrwBYTYrqmnfmSrIqOgVFJCXrpZMt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/WSBCLzV8Z18MK01IqBrXhPdMniyy1d1u.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/aFhfXGywqPyUzl_MVxKHhXVEakHyxKuT.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/e3JAon_qijVazxh_9TCXx9bXIDuaJEOC.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/yZUwlAH3vFRZroIvNrpeFMGwJdpKQEMH.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas-http/sessions/rtV2YJyVArFsSAXwRtpkJMC1zyxMQitr.json" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/sessions/rtV2YJyVArFsSAXwRtpkJMC1zyxMQitr.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/src/usuario/usuario.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas-http/views/usuario/componentes/mostrar-tabla.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/usuario/componentes/mostrar-tabla.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/views/usuario/rutas/buscar-mostrar-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/usuario/rutas/buscar-mostrar-usuario.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas-http/views/usuario/rutas/crear-usuario.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas-http/views/usuario/rutas/crear-usuario.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +76,7 @@
       <workItem from="1579201850259" duration="7031000" />
       <workItem from="1579295362908" duration="273000" />
       <workItem from="1579296044064" duration="315000" />
-      <workItem from="1579797936112" duration="7072000" />
+      <workItem from="1579797936112" duration="8313000" />
     </task>
     <servers />
   </component>
