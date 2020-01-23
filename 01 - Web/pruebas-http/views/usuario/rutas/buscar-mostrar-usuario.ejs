@@ -1,6 +1,5 @@
 <%- include('../../compartido/cabecera')%>
 <div class="container">
-    <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" alt="">
     <% if(datos.mensaje){ %>
         <div class="alert alert-primary" role="alert">
             <%= datos.mensaje %>
@@ -27,4 +26,20 @@
     usuarios: datos.usuarios
     })%>
 </div>
+<form action="/usuario/ruta/mostrar-usuarios"
+      method="GET"
+>
+    <div class="form-group">
+        <label for="consultaID">Buscar usuario</label>
+        <input id="consultaID"
+               type="text"
+               name="consultaUsuario"
+               placeholder="Ej: 1720572773 o Adrian"
+               title="Ingresar la busqueda por cedula o nombre"
+               class="form-control">
+        <small id="nombreIDHelp"
+               class="form-text text-muted">
+            Ingresa un nombre mayor a 3 caracteres y menor a 10.
+        </small>
+    </div>
 <%- include('../../compartido/pie-de-pagina')%>
