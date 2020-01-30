@@ -14,6 +14,23 @@ export class AppController {
     constructor(private readonly appService: AppService) {
     } // http://localhost:4000/pepito/ GET
 
+    @Get('ciudades/:idCiudad')
+    ciudades(
+        @Param('idCiudad') idCiudad: string,
+    ) {
+        const ciudadPichincha = [
+            {id: 1, nombre: 'Quito'},
+            {id: 3, nombre: 'Machachi'},
+        ];
+        const ciudadGuayas = [ {id: 2, nombre: 'Guayaquil'}, {id: 4, nombre: 'Duran'},
+        ];
+        if (idCiudad === '1') {
+            return ciudadPichincha;
+        } else {
+            return ciudadGuayas;
+        }
+    }
+
     @Get('login')
     login(
         @Res() res,
