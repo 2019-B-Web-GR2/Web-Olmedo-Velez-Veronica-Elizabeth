@@ -1,0 +1,91 @@
+/*
+    Query Selector (como buscar a una etiqueta)
+    -ID         -> #NombreID
+    -Clase      -> .NombreClase
+    -Etiqueta   -> nombre-etiqueta
+
+    Orden de Importancia
+    (style="") X-> NO! > ID > Clase > Etiqueta
+
+    querySelector{
+        propiedadesCss : valoresCss;
+        propiedadDosCss : valorDosCss;
+    }
+ */
+
+    #titulo{
+        background-color: blue;
+    }
+
+    h1{
+        background-color: white;
+    }
+
+    .rojo{
+        background-color: red;
+    }
+
+        .tomate{
+            background-color: orange;
+        }
+
+            .cafe{
+                background-color: brown;
+            }
+
+
+    .web{
+        background-color: darkblue;
+        color:white;
+    }
+
+    @media(max-width: 992px){
+        .web{
+            background-color: black;
+            color:white;
+        }
+    }
+
+    @media(max-width: 560px){
+        .web{
+            background-color: white;
+            color:black;
+        }
+    }
+
+    .animacion-web{
+        background-color: blue;
+        color: orange;
+        animation-name: rojo-amarillo;
+        animation-duration: 10s;
+        animation-iteration-count: 2;
+        animation-delay: 3s;
+    }
+    .animacion-web:hover{
+        background-color: pink;
+    }
+
+    .animacion-web:focus{
+        background-color: purple;
+    }
+    @keyframes rojo-amarillo {
+        0%{
+            background-color: red;
+            color: darkblue;
+            font-size: 10px;
+        }
+        50%{
+            background-color: yellow;
+            color:darkgreen;
+            font-size: 40px;
+        }
+        100%{
+            background-color: blue;
+            color: orange;
+            font-size: 15px;
+        }
+    }
+
+    .transformacion{
+        transform: rotate(20deg);
+    }
